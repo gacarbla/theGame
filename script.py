@@ -1,5 +1,4 @@
 print("\n"*125)
-lang = "en"
 
 try:
     import json
@@ -66,11 +65,9 @@ class JSONManager:
 class APP():
 
     class User:
-        def __init__(self, nombre_usuario, contraseña_usuario, idioma_usuario):
+        def __init__(self, nombre_usuario, contraseña_usuario):
             self.name = nombre_usuario
             self.pssw = contraseña_usuario
-            self.lang = idioma_usuario
-            lang = idioma_usuario
 
     class DataPack:
         def __init__(self, user_logged, window, window_label):
@@ -98,7 +95,8 @@ class APP():
         self.users:list[self.User] = []
         x = 0
         for user in self.config["users"]:
-            self.users.append(self.User(user["name"], user["pssw"], user["lang"]))
+            print(user)
+            self.users.append(self.User(user["name"], user["pssw"]))
             x += 1
 
     def login_frame_builder(self):
@@ -148,7 +146,7 @@ class APP():
                     self.log_in_label_error.place(x=10, y=150)
 
     def start_commandreader(self):
-        self.command_shown_text = Label(self.window, text=API().get_text("start", "{0}/messages.json".format(self.user_logged.lang)), bg="#1e2124", fg="#fff", justify=LEFT, font=('System', 12))
+        self.command_shown_text = Label(self.window, text=API().get_text("start", "messages.json"), bg="#1e2124", fg="#fff", justify=LEFT, font=('System', 12))
         self.command_bar = Entry(self.window, text="cmd: ", bd=0, bg="#424549", fg="#fff", width=115, borderwidth=7, relief=FLAT, font=('System', 12))
         self.command_bar.place(x=15, y=(self.window.winfo_height()-50))
         self.command_shown_text.place(x=20, y=10)
@@ -192,12 +190,12 @@ class APP():
 
         # AYUDA
         def help(self):
-            text = API().get_text("help", "{0}/messages.json".format(lang))
+            text = API().get_text("help", "messages.json")
             self.print(text, "#fff")
             
             
         def commandList(self):
-            text = API().get_text("commandList", "{0}/messages.json".format(lang))
+            text = API().get_text("commandList", "messages.json")
             command_window = Tk()
             command_list = Label(command_window, text=text, font=("Arial", 8), justify=LEFT)
             command_list.place(x=10, y=10)

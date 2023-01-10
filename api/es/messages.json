@@ -1,5 +1,0 @@
-{
-    "start": "¡Bienvenid@ al juego!",
-    "help":"Escriba uno de los siguientes comandos para ejecutar su función.\n\nhelp -> Muestra este mensaje\ncommand-list -> Muestra una ventana con todos los comandos\n\nhardexit -> Cierra el programa forzosamente",
-    "commandList":"\n--- AYUDA ---\nhelp\ncommand-list\n\n--- ECONOMÍA ---\ndeposit\nwithdraw\ntransfer\n\n--- OBJETOS ---\nbuy\nsell\ngift\nuse\n"
-  }
