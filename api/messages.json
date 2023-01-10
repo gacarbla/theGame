@@ -1,5 +1,10 @@
 {
+  "username": "Username:",
+  "logIn": "  Log In  ",
+  "signUp": " Sign Up ",
+  "password": "Password:",
   "start": "Welcome to the game!",
   "help":"Type one of the following commands to execute it's function.\n\nhelp -> Show this message\ncommand-list -> Shows a window with every command\n\nhardexit -> Close the program forcefully",
-  "commandList":"\n--- HELP ---\nhelp\ncommand-list\n\n--- ECONOMY ---\ndeposit\nwithdraw\ntransfer\n\n--- OBJECTS ---\nbuy\nsell\ngift\nuse\n"
+  "commandList":"\n--- HELP ---\nhelp\ncommand-list\n\n--- ECONOMY ---\ndeposit\nwithdraw\ntransfer\n\n--- OBJECTS ---\nbuy\nsell\ngift\nuse\n",
+  "errorNTryes": "You exceded de limit of\ntimes you can try to log in"
 }

@@ -31,7 +31,7 @@ finally:
         from time import sleep
     except:
         print("\n"*125)
-        print("No ha sido posible actualizar los paquetes necesarios para la ejecución del programa")
+        print("It has not been possible to update the packages necessary for the execution of the program")
         exit()
 
 messagebox.showwarning("","Do not close the console and be connected to the internet")
@@ -104,12 +104,12 @@ class APP():
         self.login_frame = Frame(self.window, bg="#fff")
         self.login_frame.pack(fill="both", expand=1)
         self.login_tries = 0
-        self.log_in_username_label = Label(self.login_frame, text="Username:", font=('System', 12), bg="#1e2124", fg="#fff")
-        self.log_in_username_input = Entry(self.login_frame, text="Username: ", font=('System', 12), bd=0, bg="#424549", fg="#fff", borderwidth=4, relief=FLAT, width=60)
-        self.log_in_password_label = Label(self.login_frame, text="Password:", font=('System', 12), bg="#1e2124", fg="#fff")
-        self.log_in_password_input = Entry(self.login_frame, text="Password: ", font=('System', 12), bd=0, bg="#424549", fg="#fff", borderwidth=4, relief=FLAT, width=60)
-        self.log_in_button = Button(self.login_frame, text="  Log In  ", command=self.login, bd=0, bg="#5865f2", fg="#fff")
-        self.sign_up_button = Button(self.login_frame, text=" Sign Up ", command=self.login, bd=0, bg="#fee528", fg="#000", state="disabled")
+        self.log_in_username_label = Label(self.login_frame, text=API().get_text("username", "messages.json"), font=('System', 12), bg="#1e2124", fg="#fff")
+        self.log_in_username_input = Entry(self.login_frame, text=API().get_text("username", "messages.json"), font=('System', 12), bd=0, bg="#424549", fg="#fff", borderwidth=4, relief=FLAT, width=60)
+        self.log_in_password_label = Label(self.login_frame, text=API().get_text("password", "messages.json"), font=('System', 12), bg="#1e2124", fg="#fff")
+        self.log_in_password_input = Entry(self.login_frame, text=API().get_text("password", "messages.json"), font=('System', 12), bd=0, bg="#424549", fg="#fff", borderwidth=4, relief=FLAT, width=60)
+        self.log_in_button = Button(self.login_frame, text=API().get_text("logIn", "messages.json"), command=self.login, bd=0, bg="#5865f2", fg="#fff")
+        self.sign_up_button = Button(self.login_frame, text=API().get_text("signUp", "messages.json"), command=self.login, bd=0, bg="#fee528", fg="#000", state="disabled")
         self.log_in_username_label.place(x=20, y=20)
         self.log_in_username_input.place(x=20, y=45)
         self.log_in_password_label.place(x=20, y=90)
@@ -128,7 +128,7 @@ class APP():
             if (self.login_tries>3):
                 self.log_in_username_input.config(state="disabled")
                 self.log_in_password_input.config(state="disabled")
-                self.log_in_label_error = Label(self.login_frame, text="You exceded de limit of\ntimes you can try to log in", fg="red", font=("Arial", 8), bg="#1e2124")
+                self.log_in_label_error = Label(self.login_frame, text=API().get_text("errorNTryes", "messages.json"), fg="red", font=("Arial", 8), bg="#1e2124")
                 self.log_in_label_error.place(x=10, y=150)
             else:
                 user_to_log:self.User = None
